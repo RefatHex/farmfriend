@@ -1,4 +1,6 @@
 from django.apps import AppConfig
-class ConsultationsConfig(AppConfig):
+
+
+class AiResponsesConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'consultations'
+    name = 'ai_responses'
