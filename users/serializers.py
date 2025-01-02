@@ -2,6 +2,7 @@ from rest_framework import serializers
 from .models import UserInfo, UserSessions
 
 class UserInfoSerializer(serializers.ModelSerializer):
+    user_id=serializers.UUIDField(read_only=True)
     class Meta:
         model = UserInfo
         fields = ['user_id', 'is_admin', 'is_farmer', 'is_storage_owner', 'is_rent_owner', 'is_agronomist', 'role_count']
