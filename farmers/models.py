@@ -8,7 +8,7 @@ class Farmer(models.Model):
     dob = models.DateField()
     address = models.CharField(max_length=255)
     field_size = models.DecimalField(max_digits=10, decimal_places=2, default=0.0)
-    average_rating = models.FloatField(default=0.0)  
+    average_rating = models.FloatField(default=0.0)
 
 
 class FarmerGigs(models.Model):

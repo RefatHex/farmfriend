@@ -1,14 +1,16 @@
+import uuid
 from django.contrib.auth.models import AbstractUser
 from django.db import models
 
 class UserInfo(AbstractUser):
-    user_id = models.CharField(max_length=255, unique=True)
+    user_id = models.UUIDField(default=uuid.uuid4, editable=False, unique=True)
     is_admin = models.BooleanField(default=False)
     is_farmer = models.BooleanField(default=False)
     is_storage_owner = models.BooleanField(default=False)
     is_rent_owner = models.BooleanField(default=False)
     is_agronomist = models.BooleanField(default=False)
     role_count = models.IntegerField(default=0)
+
 
     def save(self, *args, **kwargs):
         # Automatically update role_count based on boolean flags
