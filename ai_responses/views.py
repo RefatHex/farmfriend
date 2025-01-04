@@ -3,7 +3,7 @@ from rest_framework.response import Response
 from rest_framework import status
 from .models import RecAIResponse, FertAIResponse
 from .serializers import RecAIResponseSerializer, FertAIResponseSerializer
-##from scripts import get_ai_response  # Assumes ai.py has a function to get AI responses
+from scripts.scripts import get_ai_response 
 
 class RecAIResponseView(APIView):
     """

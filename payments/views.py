@@ -1,15 +1,20 @@
 from rest_framework.viewsets import ModelViewSet
 from .models import Payments
 from .serializers import PaymentsSerializer
+from django_filters.rest_framework import DjangoFilterBackend
 
 class PaymentsViewSet(ModelViewSet):
     """
-    CRUD operations for payments.
+    ViewSet for managing payments with search and filter.
     """
     serializer_class = PaymentsSerializer
+    queryset = Payments.objects.all()
+
+    filter_backends = [DjangoFilterBackend]
+    filterset_fields = ['payment_method', 'status']
 
     def get_queryset(self):
         """
-        Fetch payment records for the authenticated user.
+        Fetch all payments.
         """
-        return Payments.objects.filter(user=self.request.user)
+        return Payments.objects.all()

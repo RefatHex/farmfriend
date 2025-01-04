@@ -18,7 +18,9 @@ class StorageOwnerGigs(models.Model):
 
 class StorageDeals(models.Model):
     farmer = models.ForeignKey('farmers.Farmer', on_delete=models.CASCADE)
-    storage_owner = models.ForeignKey(StorageOwner, on_delete=models.CASCADE)
+    storage_owner = models.ForeignKey('StorageOwner', on_delete=models.CASCADE)
     crops_taken_at = models.DateField()
     created_at = models.DateTimeField(auto_now_add=True)
     completed = models.BooleanField(default=False)
+    is_confirmed = models.BooleanField(default=False) 
+    is_ready_for_pickup = models.BooleanField(default=False)  

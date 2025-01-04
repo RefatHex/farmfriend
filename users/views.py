@@ -1,18 +1,24 @@
 from rest_framework.viewsets import ModelViewSet
 from .models import UserInfo, UserSessions
 from .serializers import UserInfoSerializer, UserSessionsSerializer
+from rest_framework.filters import SearchFilter
 
 class UserInfoViewSet(ModelViewSet):
     """
-    CRUD operations for user info.
+    ViewSet for managing user info with search and filter.
     """
     serializer_class = UserInfoSerializer
+    queryset = UserInfo.objects.all()
+
+    filter_backends = [SearchFilter]
+    search_fields = ['username', 'email']
 
     def get_queryset(self):
         """
-        Fetch authenticated user's information.
+        Fetch all user profiles.
         """
-        return UserInfo.objects.filter(id=self.request.user.id)
+        return UserInfo.objects.all()
+
 
 
 class UserSessionsViewSet(ModelViewSet):

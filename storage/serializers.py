@@ -14,4 +14,5 @@ class StorageOwnerGigsSerializer(serializers.ModelSerializer):
 class StorageDealsSerializer(serializers.ModelSerializer):
     class Meta:
         model = StorageDeals
-        fields = ['farmer', 'storage_owner', 'crops_taken_at', 'completed']
+        fields = ['id', 'farmer', 'storage_owner', 'crops_taken_at', 'created_at', 'completed', 'is_confirmed', 'is_ready_for_pickup']
+
