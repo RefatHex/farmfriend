@@ -11,6 +11,8 @@ djangorestframework-simplejwt = "*"
 pillow = "*"
 drf-nested-routers = "*"
 django-filter = "*"
+drf-yasg = {extras = ["swagger-ui"], version = "*"}
+requests = "*"
 
 [dev-packages]
 
