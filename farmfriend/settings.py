@@ -87,7 +87,7 @@ WSGI_APPLICATION = 'farmfriend.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'firmfriend',
+        'NAME': 'farmfriend',
         'USER': 'root',
         'PASSWORD': 'root',
         'HOST': 'localhost', 
