@@ -4,6 +4,7 @@ from django.db import models
 
 class UserInfo(AbstractUser):
     user_id = models.UUIDField(default=uuid.uuid4, editable=False, unique=True)
+    username = models.CharField(max_length=150, unique=True, blank=False, null=False)
     is_admin = models.BooleanField(default=False)
     is_farmer = models.BooleanField(default=False)
     is_storage_owner = models.BooleanField(default=False)
