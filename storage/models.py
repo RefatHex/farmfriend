@@ -8,6 +8,8 @@ class StorageOwner(models.Model):
     contact = models.CharField(max_length=255)
     address = models.CharField(max_length=255)
     no_of_deals = models.BigIntegerField(default=0)
+    class Meta:
+        ordering = ['name']
 
 class StorageOwnerGigs(models.Model):
     storage_owner = models.ForeignKey(StorageOwner, on_delete=models.CASCADE)
@@ -15,6 +17,8 @@ class StorageOwnerGigs(models.Model):
     description = models.TextField()
     image = models.ImageField(upload_to='storage_gigs/')
     price = models.DecimalField(max_digits=10, decimal_places=2)
+    class Meta:
+        ordering = ['-title']
 
 class StorageDeals(models.Model):
     farmer = models.ForeignKey('farmers.Farmer', on_delete=models.CASCADE)
@@ -23,4 +27,6 @@ class StorageDeals(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     completed = models.BooleanField(default=False)
     is_confirmed = models.BooleanField(default=False) 
-    is_ready_for_pickup = models.BooleanField(default=False)  
+    is_ready_for_pickup = models.BooleanField(default=False) 
+    class Meta:
+        ordering = ['-created_at']

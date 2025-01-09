@@ -48,9 +48,17 @@ INSTALLED_APPS = [
     'feedback',
     'ai_responses',
     'drf_yasg',
+    "corsheaders",
 ]
 
+CORS_ALLOWED_ORIGINS = [
+    "http://127.0.0.1:5500",
+]
+
+# OR, allow all origins for development (not recommended for production)
+CORS_ALLOW_ALL_ORIGINS = True
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware', 
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -59,6 +67,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
 
 ROOT_URLCONF = 'farmfriend.urls'
 
