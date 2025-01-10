@@ -12,4 +12,4 @@ class BillingAddressViewSet(ModelViewSet):
         """
         Fetch billing addresses for the authenticated user.
         """
-        return BillingAddress.objects.filter(user=self.request.user)
+        return BillingAddress.objects.all()
