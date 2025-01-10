@@ -12,4 +12,4 @@ class NotificationsViewSet(ModelViewSet):
         """
         Fetch notifications for the authenticated user.
         """
-        return Notifications.objects.filter(user=self.request.user)
+        return Notifications.objects.all()

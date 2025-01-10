@@ -42,7 +42,7 @@ urlpatterns = [
     path('consultations/', include('consultations.urls')),
     path('farmers/', include('farmers.urls')),
     path('feedback/', include('feedback.urls')),
-    path('notifications/', include('notifications.urls')),
+    path('notification/', include('notifications.urls')),
     path('payments/', include('payments.urls')),
     path('rentals/', include('rentals.urls')),
     path('storage/', include('storage.urls')),
