@@ -35,4 +35,4 @@ class ConsultationRequestViewSet(ModelViewSet):
         """
         Fetch consultation requests for the authenticated farmer.
         """
-        return ConsultationRequest.objects.filter(farmer__user=self.request.user)
+        return ConsultationRequest.objects.all()
