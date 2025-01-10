@@ -8,14 +8,14 @@ class RentOwnerViewSet(ModelViewSet):
     serializer_class = RentOwnerSerializer
 
     def get_queryset(self):
-        return RentOwner.objects.filter(user=self.request.user)
+        return RentOwner.objects.all()
 
 
 class RentItemsViewSet(ModelViewSet):
     serializer_class = RentItemsSerializer
 
     def get_queryset(self):
-        return RentItems.objects.filter(rent_owner__user=self.request.user)
+        return RentItems.objects.all()
 
 
 class RentItemGigsViewSet(ModelViewSet):
