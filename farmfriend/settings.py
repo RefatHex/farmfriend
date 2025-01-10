@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -153,7 +154,9 @@ REST_FRAMEWORK = {
 }
 
 STATIC_URL = '/static/'
+Media_URL = '/media/'
 STATICFILES_DIRS = [
     BASE_DIR / "static",
 ]
 STATIC_ROOT = BASE_DIR / "staticfiles"
+Media_Root = os.path.join(BASE_DIR, 'media')

@@ -23,7 +23,7 @@ class RentItemGigs(models.Model):
     description = models.TextField()
     image = models.ImageField(upload_to='rent_gigs/',null=True, blank=True)
     price = models.DecimalField(max_digits=10, decimal_places=2)
-    is_confirmed = models.BooleanField(default=False)  
+    is_confirmed = models.BooleanField(default=False) 
     is_ready_for_pickup = models.BooleanField(default=False) 
 
 
