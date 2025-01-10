@@ -43,7 +43,7 @@ urlpatterns = [
     path('farmers/', include('farmers.urls')),
     path('feedback/', include('feedback.urls')),
     path('notification/', include('notifications.urls')),
-    path('payments/', include('payments.urls')),
+    path('payment/', include('payments.urls')),
     path('rentals/', include('rentals.urls')),
     path('storage/', include('storage.urls')),
     path('users/', include('users.urls')),
