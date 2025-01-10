@@ -11,7 +11,7 @@ class PaymentsViewSet(ModelViewSet):
     queryset = Payments.objects.all()
 
     filter_backends = [DjangoFilterBackend]
-    filterset_fields = ['payment_method', 'status']
+    filterset_fields = ['payment_method', 'status','user']
 
     def get_queryset(self):
         """
