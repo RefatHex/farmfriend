@@ -4,7 +4,7 @@ from .models import RentOwner, RentItems, RentItemGigs
 class RentOwnerSerializer(serializers.ModelSerializer):
     class Meta:
         model = RentOwner
-        fields = ['name', 'contact', 'no_of_deals']
+        fields = ['user', 'name', 'dob', 'contact', 'no_of_deals']
 
 class RentItemsSerializer(serializers.ModelSerializer):
     class Meta:

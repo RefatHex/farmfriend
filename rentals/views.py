@@ -35,7 +35,7 @@ class RentItemGigsViewSet(ModelViewSet):
         """
         Fetch gigs owned by the authenticated rent owner.
         """
-        return RentItemGigs.objects.filter(rent_owner__user=self.request.user)
+        return RentItemGigs.objects.all()
   
     def perform_update(self, serializer):
         """

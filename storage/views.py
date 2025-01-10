@@ -7,15 +7,17 @@ from django_filters.rest_framework import DjangoFilterBackend
 class StorageOwnerViewSet(ModelViewSet):
     serializer_class = StorageOwnerSerializer
 
+
     def get_queryset(self):
-        return StorageOwner.objects.filter(user=self.request.user)
+        return StorageOwner.objects.all()
 
 
 class StorageOwnerGigsViewSet(ModelViewSet):
     serializer_class = StorageOwnerGigsSerializer
 
+
     def get_queryset(self):
-        return StorageOwnerGigs.objects.filter(storage_owner__user=self.request.user)
+        return StorageOwnerGigs.objects.all()
 
 
 class StorageDealsViewSet(ModelViewSet):
@@ -28,12 +30,9 @@ class StorageDealsViewSet(ModelViewSet):
     filter_backends = [DjangoFilterBackend]
     filterset_fields = ['is_confirmed', 'is_ready_for_pickup', 'completed']
 
+
     def get_queryset(self):
-        """
-        Fetch storage deals for the authenticated user.
-        """
-        user = self.request.user
-        return StorageDeals.objects.filter(farmer__user=user) | StorageDeals.objects.filter(storage_owner__user=user)
+        return StorageDeals.objects.all()
 
 
 

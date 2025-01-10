@@ -4,7 +4,7 @@ from .models import StorageOwner, StorageOwnerGigs, StorageDeals
 class StorageOwnerSerializer(serializers.ModelSerializer):
     class Meta:
         model = StorageOwner
-        fields = ['user','name', 'contact', 'no_of_deals']
+        fields = ['user','name','dob', 'contact', 'no_of_deals']
 
 class StorageOwnerGigsSerializer(serializers.ModelSerializer):
     class Meta:
