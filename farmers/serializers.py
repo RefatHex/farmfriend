@@ -4,13 +4,13 @@ from .models import Farmer, FarmerGigs, Crops
 class FarmerSerializer(serializers.ModelSerializer):
     class Meta:
         model = Farmer
-        fields = ['user', 'name', 'picture', 'dob', 'address', 'field_size', 'average_rating']
+        fields = ['id', 'user', 'name', 'picture', 'dob', 'address', 'field_size', 'average_rating']
 
 
 class FarmerGigsSerializer(serializers.ModelSerializer):
     class Meta:
         model = FarmerGigs
-        fields = ['farmer','title', 'description', 'price', 'quantity']
+        fields = ['id', 'farmer', 'title', 'description', 'price', 'quantity'] 
 
     def validate_quantity(self, value):
         if value < 0:
@@ -21,4 +21,4 @@ class FarmerGigsSerializer(serializers.ModelSerializer):
 class CropsSerializer(serializers.ModelSerializer):
     class Meta:
         model = Crops
-        fields = ['farmer','name', 'image']
+        fields = ['id', 'farmer', 'name', 'image']
