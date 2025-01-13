@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import RentOwner, RentItems, RentItemGigs
+from .models import RentOwner, RentItems, RentItemOrders
 
 class RentOwnerSerializer(serializers.ModelSerializer):
     class Meta:
@@ -12,8 +12,7 @@ class RentItemsSerializer(serializers.ModelSerializer):
         fields = ['id', 'rent_owner', 'product_name', 'description', 'image', 'price', 'is_available']
 
 
-class RentItemGigsSerializer(serializers.ModelSerializer):
-    rent_owner = RentOwnerSerializer()
+class RentItemOrdersSerializer(serializers.ModelSerializer):
     class Meta:
-        model = RentItemGigs
-        fields = ['id', 'rent_owner', 'title', 'description', 'image', 'price', 'is_confirmed', 'is_ready_for_pickup']
+        model = RentItemOrders
+        fields = ['id', 'rent_owner','rent_taker', 'title', 'description', 'image', 'price', 'is_confirmed', 'is_ready_for_pickup']

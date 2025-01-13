@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import RentOwner, RentItems, RentItemGigs
+from .models import RentOwner, RentItems, RentItemOrders
 
 @admin.register(RentOwner)
 class RentOwnerAdmin(admin.ModelAdmin):
@@ -18,12 +18,12 @@ class RentItemsAdmin(admin.ModelAdmin):
     list_filter = ('is_available',)
     search_fields = ('product_name', 'description')
 
-@admin.register(RentItemGigs)
+@admin.register(RentItemOrders)
 class RentItemGigsAdmin(admin.ModelAdmin):
     """
     Admin configuration for RentItemGigs.
     """
-    list_display = ('rent_owner', 'title', 'price', 'is_confirmed', 'is_ready_for_pickup')
+    list_display = ('rent_owner','rent_taker', 'title', 'price', 'is_confirmed', 'is_ready_for_pickup')
     list_filter = ('is_confirmed', 'is_ready_for_pickup')
     search_fields = ('title', 'description')
 

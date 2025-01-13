@@ -1,5 +1,5 @@
-from .models import RentOwner, RentItems, RentItemGigs
-from .serializers import RentOwnerSerializer, RentItemsSerializer, RentItemGigsSerializer
+from .models import RentOwner, RentItems, RentItemOrders
+from .serializers import RentOwnerSerializer, RentItemsSerializer, RentItemOrdersSerializer
 from rest_framework.viewsets import ModelViewSet
 from rest_framework.filters import SearchFilter, OrderingFilter
 from django_filters.rest_framework import DjangoFilterBackend
@@ -18,15 +18,15 @@ class RentItemsViewSet(ModelViewSet):
         return RentItems.objects.all()
 
 
-class RentItemGigsViewSet(ModelViewSet):
-    serializer_class = RentItemGigsSerializer
+class RentItemOrdersViewSet(ModelViewSet):
+    serializer_class = RentItemOrdersSerializer
     filter_backends = [DjangoFilterBackend, SearchFilter, OrderingFilter]
     filterset_fields = ['is_confirmed', 'is_ready_for_pickup']
-    search_fields = ['title', 'description']
+    search_fields = ['rent_owner','title', 'description']
     ordering_fields = ['price']
 
     def get_queryset(self):
-        return RentItemGigs.objects.select_related('rent_owner').all()
+        return RentItemOrders.objects.select_related('rent_owner').all()
 
     def perform_update(self, serializer):
         """

@@ -22,8 +22,9 @@ class RentItems(models.Model):
     price = models.DecimalField(max_digits=10, decimal_places=2)
     is_available = models.BooleanField(default=True)  
 
-class RentItemGigs(models.Model):
-    rent_owner = models.ForeignKey('RentOwner', on_delete=models.CASCADE)
+class RentItemOrders(models.Model):
+    rent_owner = models.OneToOneField('RentOwner', on_delete=models.CASCADE)
+    rent_taker= models.OneToOneField(UserInfo, on_delete=models.CASCADE)
     title = models.CharField(max_length=255)
     description = models.TextField()
     image = models.ImageField(upload_to='rent_gigs/',null=True, blank=True)
