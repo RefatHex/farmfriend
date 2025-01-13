@@ -19,24 +19,15 @@ class RentItemsViewSet(ModelViewSet):
 
 
 class RentItemGigsViewSet(ModelViewSet):
-    """
-    ViewSet for managing rent item gigs with search and filters.
-    """
     serializer_class = RentItemGigsSerializer
-    queryset = RentItemGigs.objects.all()
-
-    # Add necessary filters
     filter_backends = [DjangoFilterBackend, SearchFilter, OrderingFilter]
     filterset_fields = ['is_confirmed', 'is_ready_for_pickup']
     search_fields = ['title', 'description']
     ordering_fields = ['price']
 
     def get_queryset(self):
-        """
-        Fetch gigs owned by the authenticated rent owner.
-        """
-        return RentItemGigs.objects.all()
-  
+        return RentItemGigs.objects.select_related('rent_owner').all()
+
     def perform_update(self, serializer):
         """
         Handle updates for confirmation and readiness.

@@ -25,6 +25,7 @@ class LoginAPIView(APIView):
         if user is not None:
             return Response({
                 "user_id": user.user_id,
+                "id": user.id,
                 "username": user.username,
                 "is_admin": user.is_admin,
                 "is_farmer": user.is_farmer,

@@ -8,6 +8,11 @@ class RentOwner(models.Model):
     contact = models.CharField(max_length=255)
     address = models.CharField(max_length=255)
     no_of_deals = models.BigIntegerField(default=0)
+    ratings = models.DecimalField(
+        max_digits=3, 
+        decimal_places=1, 
+        default=0.0  
+    )
 
 class RentItems(models.Model):
     rent_owner = models.ForeignKey('RentOwner', on_delete=models.CASCADE)

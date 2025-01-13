@@ -13,6 +13,7 @@ class RentItemsSerializer(serializers.ModelSerializer):
 
 
 class RentItemGigsSerializer(serializers.ModelSerializer):
+    rent_owner = RentOwnerSerializer()
     class Meta:
         model = RentItemGigs
         fields = ['id', 'rent_owner', 'title', 'description', 'image', 'price', 'is_confirmed', 'is_ready_for_pickup']
