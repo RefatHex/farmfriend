@@ -20,11 +20,14 @@ class RentItems(models.Model):
     description = models.TextField()
     image = models.ImageField(upload_to='rent_items/',null=True, blank=True)
     price = models.DecimalField(max_digits=10, decimal_places=2)
+    quantity = models.IntegerField(default=1)
     is_available = models.BooleanField(default=True)  
 
 class RentItemOrders(models.Model):
     rent_owner = models.OneToOneField('RentOwner', on_delete=models.CASCADE)
     rent_taker= models.OneToOneField(UserInfo, on_delete=models.CASCADE)
+    order_date = models.DateField(auto_now_add=True)
+    return_date = models.DateField(null=False)
     title = models.CharField(max_length=255)
     description = models.TextField()
     image = models.ImageField(upload_to='rent_gigs/',null=True, blank=True)

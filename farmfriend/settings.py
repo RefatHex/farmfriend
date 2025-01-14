@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
     'users',
     'billing',
     'farmers',
@@ -50,6 +51,7 @@ INSTALLED_APPS = [
     'ai_responses',
     'drf_yasg',
     "corsheaders",
+    'django_filters',
 ]
 
 CORS_ALLOWED_ORIGINS = [
@@ -151,6 +153,7 @@ AUTH_USER_MODEL = 'users.UserInfo'
 REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
     'PAGE_SIZE': 10,
+    'DEFAULT_ORDERING': ['id'],
 }
 
 STATIC_URL = '/static/'

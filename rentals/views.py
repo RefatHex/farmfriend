@@ -13,10 +13,29 @@ class RentOwnerViewSet(ModelViewSet):
 
 class RentItemsViewSet(ModelViewSet):
     serializer_class = RentItemsSerializer
+    filter_backends = [DjangoFilterBackend, SearchFilter, OrderingFilter]
+    filterset_fields = ['is_available']
+    search_fields = ['rent_owner','product_name', 'description']
+    ordering_fields = ['price']
 
     def get_queryset(self):
         return RentItems.objects.all()
 
+    def perform_create(self, serializer):
+        """
+        Customize the creation of rent items.
+        """
+        serializer.save()
+
+    def perform_update(self, serializer):
+        """
+        Handle updates to rent items.
+        """
+        instance = self.get_object()
+        if 'is_available' in self.request.data:
+            instance.is_available = self.request.data['is_available']
+        instance.save()
+        serializer.save()
 
 class RentItemOrdersViewSet(ModelViewSet):
     serializer_class = RentItemOrdersSerializer

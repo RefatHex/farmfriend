@@ -9,10 +9,10 @@ class RentOwnerSerializer(serializers.ModelSerializer):
 class RentItemsSerializer(serializers.ModelSerializer):
     class Meta:
         model = RentItems
-        fields = ['id', 'rent_owner', 'product_name', 'description', 'image', 'price', 'is_available']
+        fields = ['id', 'rent_owner', 'product_name', 'description',"quantity", 'image', 'price', 'is_available']
 
 
 class RentItemOrdersSerializer(serializers.ModelSerializer):
     class Meta:
         model = RentItemOrders
-        fields = ['id', 'rent_owner','rent_taker', 'title', 'description', 'image', 'price', 'is_confirmed', 'is_ready_for_pickup']
+        fields = ['id', 'rent_owner','rent_taker', 'title', 'description', 'image', 'price','order_date','return_date', 'is_confirmed', 'is_ready_for_pickup']
