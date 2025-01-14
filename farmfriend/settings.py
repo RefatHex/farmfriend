@@ -155,11 +155,18 @@ REST_FRAMEWORK = {
     'PAGE_SIZE': 10,
     'DEFAULT_ORDERING': ['id'],
 }
+BASE_DIR = Path(__file__).resolve().parent.parent
 
+# Static files (CSS, JavaScript, Images)
 STATIC_URL = '/static/'
-Media_URL = '/media/'
 STATICFILES_DIRS = [
     BASE_DIR / "static",
 ]
 STATIC_ROOT = BASE_DIR / "staticfiles"
-Media_Root = os.path.join(BASE_DIR, 'media')
+
+# Media files (Uploaded images, etc.)
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / "media"
+
+# Ensure DEBUG is True during development
+DEBUG = True
