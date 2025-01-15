@@ -4,13 +4,18 @@ from .models import RentOwner, RentItems, RentItemOrders
 class RentOwnerSerializer(serializers.ModelSerializer):
     class Meta:
         model = RentOwner
-        fields = ['user', 'name', 'dob', 'contact', 'no_of_deals']
+        fields = ['user', 'id','name', 'dob', 'contact', 'no_of_deals']
 
 class RentItemsSerializer(serializers.ModelSerializer):
     class Meta:
         model = RentItems
         fields = ['id', 'rent_owner', 'product_name', 'description',"quantity", 'image', 'price', 'is_available']
 
+class RentItemsWithUserSerializer(serializers.ModelSerializer):
+    rent_owner=RentOwnerSerializer()
+    class Meta:
+        model = RentItems
+        fields = ['id', 'rent_owner', 'product_name', 'description',"quantity", 'image', 'price', 'is_available']
 
 class RentItemOrdersSerializer(serializers.ModelSerializer):
     class Meta:

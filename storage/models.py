@@ -17,6 +17,7 @@ class StorageOwnerGigs(models.Model):
     description = models.TextField()
     image = models.ImageField(upload_to='storage_gigs/')
     price = models.DecimalField(max_digits=10, decimal_places=2)
+    quantity = models.IntegerField(default=1)
     class Meta:
         ordering = ['-title']
 
