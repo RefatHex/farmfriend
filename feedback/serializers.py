@@ -1,7 +1,9 @@
 from rest_framework import serializers
-from .models import Feedback
 
+from users.serializers import UserInfoSerializer
+from .models import Feedback
 class FeedbackSerializer(serializers.ModelSerializer):
+    user=UserInfoSerializer
     class Meta:
         model = Feedback
         fields = [ 'user', 'target_user', 'gig_id', 'consultation_id',

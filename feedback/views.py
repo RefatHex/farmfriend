@@ -14,7 +14,7 @@ class FeedbackViewSet(ModelViewSet):
 
     filter_backends = [SearchFilter, DjangoFilterBackend]
     search_fields = ['content']
-    filterset_fields = ['review_type', 'created_at']
+    filterset_fields = ['review_type', 'created_at','user']
 
     def get_queryset(self):
         """

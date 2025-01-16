@@ -1,4 +1,5 @@
 from django.db import models
+from farmers.models import Crops
 from users.models import UserInfo
 
 class StorageOwner(models.Model):
@@ -16,6 +17,7 @@ class StorageOwnerGigs(models.Model):
     title = models.CharField(max_length=255)
     description = models.TextField()
     image = models.ImageField(upload_to='storage_gigs/')
+    prefered_crop = models.ForeignKey(Crops, on_delete=models.CASCADE, default=1)
     price = models.DecimalField(max_digits=10, decimal_places=2)
     quantity = models.IntegerField(default=1)
     class Meta:
