@@ -47,7 +47,7 @@ class CropsViewSet(ModelViewSet):
     queryset = Crops.objects.all()
 
     filter_backends = [SearchFilter]
-    search_fields = ['name']
+    search_fields = ['name','id']
 
     def get_queryset(self):
         """

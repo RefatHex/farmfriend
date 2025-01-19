@@ -14,8 +14,8 @@ class StorageOwnerGigsAdmin(admin.ModelAdmin):
     """
     Admin configuration for StorageOwnerGigs.
     """
-    list_display = ('storage_owner', 'title', 'price')
-    search_fields = ('title', 'description')
+    list_display = ('storage_owner', 'address', 'price')
+    search_fields = ('address', 'description')
 
 @admin.register(StorageDeals)
 class StorageDealsAdmin(admin.ModelAdmin):

@@ -14,14 +14,15 @@ class StorageOwner(models.Model):
 
 class StorageOwnerGigs(models.Model):
     storage_owner = models.ForeignKey(StorageOwner, on_delete=models.CASCADE)
-    title = models.CharField(max_length=255)
+    address = models.CharField(max_length=255)
     description = models.TextField()
-    image = models.ImageField(upload_to='storage_gigs/')
+    image = models.ImageField(upload_to='storage_gigs/',null=True, blank=True)
     prefered_crop = models.ForeignKey(Crops, on_delete=models.CASCADE, default=1)
     price = models.DecimalField(max_digits=10, decimal_places=2)
     quantity = models.IntegerField(default=1)
+    is_Available = models.BooleanField(default=True)
     class Meta:
-        ordering = ['-title']
+        ordering = ['-price']
 
 class StorageDeals(models.Model):
     farmer = models.ForeignKey('farmers.Farmer', on_delete=models.CASCADE)

@@ -1,6 +1,6 @@
 from rest_framework.viewsets import ModelViewSet
 from .models import StorageOwner, StorageOwnerGigs, StorageDeals
-from .serializers import StorageOwnerSerializer, StorageOwnerGigsSerializer, StorageDealsSerializer
+from .serializers import StorageOwnerGigsWithDetailsSerializer, StorageOwnerSerializer, StorageOwnerGigsSerializer, StorageDealsSerializer
 from django_filters.rest_framework import DjangoFilterBackend
 
 
@@ -19,6 +19,12 @@ class StorageOwnerGigsViewSet(ModelViewSet):
     def get_queryset(self):
         return StorageOwnerGigs.objects.all()
 
+class StorageOwnerGigsWithDetailsViewSet(ModelViewSet):
+    serializer_class = StorageOwnerGigsWithDetailsSerializer
+
+
+    def get_queryset(self):
+        return StorageOwnerGigs.objects.all()
 
 class StorageDealsViewSet(ModelViewSet):
     """
